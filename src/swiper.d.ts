@@ -9,15 +9,7 @@ declare module 'lightgallery/css/lightgallery.css';
 declare module 'lightgallery/css/lg-zoom.css';
 declare module 'lightgallery/css/lg-thumbnail.css';
 declare module '*.css';
-declare module "@/constant/alldata" {
-  export const accordiondata: {
-    id: number;
-    key: string;
-    title: string;
-    content: string;
-    delay: number; 
-  }[];
-}
+
 declare module "@/constant/alldata" {
   export const accordiondata: {
     id: number;
