@@ -58,32 +58,7 @@ function Team() {
                 <section className="content-inner">
                     <div className="container">
                         <div className="row gy-4">
-                            {empolydata.map((item, i) => (
-                                <div
-                                    className="col-xl-4 col-sm-6 wow fadeInUp"
-                                    data-wow-delay={item.delay}
-                                    data-wow-duration="0.8s"
-                                    key={i}
-                                >
-                                    <div
-                                        className={active === item.id ? "dz-team style-1 " : "dz-team style-1"}
-                                    // onMouseEnter hata diya
-                                    >
-                                        <div className="dz-media">
-                                            <Image src={item.image} alt="/" />
-                                        </div>
-                                        <div className="dz-content">
-                                            <div className="clearfix">
-                                                <h3 className="dz-name">
-                                                    <Link href="">{item.title}</Link>
-                                                </h3>
-                                                <span className="dz-position">{item.position}</span>
-                                                <span className="dz-degree">{item.degree}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                            
                         </div>
                     </div>
                 </section>
