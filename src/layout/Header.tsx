@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { IMAGES } from "../constant/theme";
-import { headerdata, headerinfo, HeaderItem } from "../constant/alldata";
+import { headerdata,  HeaderItem } from "../constant/alldata";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useEmailService } from "@/constant/useEmailService";

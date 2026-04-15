@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { IMAGES } from "../constant/theme";
 import CountUp from "react-countup";
-import { howitworkdata } from "../constant/alldata";
+
 import Image from "next/image";
 
 function Howitwork() {
@@ -16,20 +16,7 @@ function Howitwork() {
                                 <h2 className="title m-b0 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.8s">How it work</h2>
                                 <p className="wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.8s">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                             </div>
-                            <div className="row">
-                                {howitworkdata.map((data, i) => (
-                                    <div className="col-xl-12 col-md-6 wow fadeInUp" data-wow-delay={data.delay} data-wow-duration="0.8s" key={i}>
-                                        <div className="icon-bx-wraper style-2 m-b20">
-                                            <div className="icon-bx">
-                                                <span className="icon-cell"> {data.icon} </span>
-                                            </div>
-                                            <div className="icon-content">
-                                                <h3 className="dz-title">{data.title}</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                            
                         </div>
                         <div className="col-xl-8">
                             <div className="content-media">
