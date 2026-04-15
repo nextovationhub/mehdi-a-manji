@@ -70,7 +70,7 @@ function HomePage() {
                     </div>
                 </section>
 
-                <section className="content-inner overlay-secondary-dark background-blend-luminosity bg-img-fix overflow-hidden" style={{ backgroundImage: `url(${IMAGES.bg1.src})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'right center' }}>
+                <section className="content-inner overlay-secondary-dark background-blend-luminosity  overflow-hidden" style={{ backgroundImage: `url(${IMAGES.bg1.src})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'right center' }}>
                     <div className="container">
                         <WhyChoose />
                     </div>
