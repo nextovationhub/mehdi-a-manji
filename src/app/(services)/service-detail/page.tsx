@@ -3,9 +3,9 @@ import { IMAGES } from "@/constant/theme";
 import Footer from "@/layout/Footer";
 import Header from "@/layout/Header";
 import PageBanner from "@/component/PageBanner";
-import { servicedetails, worldclasslistdata } from "@/constant/alldata";
+
 import Image from "next/image";
-import AccordionBlog from "./_components/AccordionBlog";
+
 import SurgeryBlog from "./_components/SurgeryBlog";
 
 function ServiceDetail() {
@@ -26,22 +26,12 @@ function ServiceDetail() {
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including.</p>
                                 </div>
-                                <div className="content-item wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="0.7s">
-                                    <h3>Steps in Angioplasty</h3>
-                                    <ul className="list-check text-secondary grid-2 m-b30">
-                                        {worldclasslistdata.map((item, i) => (
-                                            <li key={i}>{item.title}</li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                
                                 <div className="content-item wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.7s">
                                     <h3>Available Doctors Under Surgery</h3>
                                     <SurgeryBlog />
                                 </div>
-                                <div className="content-item wow fadeInUp" data-wow-delay="0.5s" data-wow-duration="0.7s">
-                                    <h3>Frequently asked questions</h3>
-                                   <AccordionBlog />
-                                </div>
+                                
                             </div>
                             <div className="col-lg-4 m-b30">
                                 <aside className="side-bar sticky-top left">
@@ -49,11 +39,7 @@ function ServiceDetail() {
                                         <div className="widget-title">
                                             <h4 className="title">All Services</h4>
                                         </div>
-                                        <ul>
-                                            {servicedetails.map((item, i) => (
-                                                <li key={i} className={item.columnstand}><Link href="#" scroll={false}>{item.title}</Link></li>
-                                            ))}
-                                        </ul>
+                                        
                                     </div>
                                     <div className="widget_contact wow fadeInUp" 
                                         style={{ backgroundImage: `url(${IMAGES.bg3png.src})` }} data-wow-delay="0.4s" data-wow-duration="0.7s"
