@@ -1,36 +1,51 @@
 "use client"
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { IMAGES } from "../constant/theme";
-import { useEmailService } from "@/constant/useEmailService";
 
 function Getintouch() {
     const form = useRef<HTMLFormElement | null>(null);
-    const { sendEmail } = useEmailService();
+    const [result, setResult] = useState("");
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (!form.current) return;
-        const result = await sendEmail(form.current);
-        if (result.success) {
-            console.log('SUCCESS!', result.message);
-        } else {
-            console.error('FAILED...', result.message);
-        }
-    };
-    
+    e.preventDefault();
+    if (!form.current) return;
+
+    setResult("Sending....");
+
+    const formData = new FormData(form.current);
+    // ❌ ye line hata dein — already hidden input mein hai
+    // formData.append("access_key", "482df471-4a6f-4bdc-9df3-8bb9d5e5df9b");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+    console.log("Web3Forms Response:", data); // debug ke liye
+
+    if (data.success) {
+        setResult("Form Submitted Successfully ✅");
+        form.current.reset();
+    } else {
+        setResult(`Error: ${data.message}`); // exact error message dikhayein
+    }
+};
+
     return (
         <>
             <div className="col-xl-5 m-b30" data-bottom-top="transform: translateY(50px)" data-top-bottom="transform: translateY(-50px)">
                 <div className="form-wrapper style-1">
-                    <div className="form-body bg-primary background-blend-burn" 
-                        style={{ backgroundImage: `url(${IMAGES.bg2png.src})`, backgroundSize: 'cover' }} 
+                    <div className="form-body bg-primary background-blend-burn"
+                        style={{ backgroundImage: `url(${IMAGES.bg2png.src})`, backgroundSize: 'cover' }}
                     >
                         <div className="section-head style-1 m-b30">
                             <h2 className="title text-white m-b0">Get in Touch</h2>
-                            
                         </div>
                         <form ref={form} onSubmit={handleSubmit} className="dzForm">
-                            <input type="hidden" className="form-control" name="dzToDo" value="Contact" />
-                            <input type="hidden" className="form-control" name="reCaptchaEnable" value="0" />
+                            {/* Web3Forms hidden fields */}
+                            <input type="hidden" name="access_key" value="482df471-4a6f-4bdc-9df3-8bb9d5e5df9b" />
+
                             <div className="dzFormMsg"></div>
                             <div className="row">
                                 <div className="col-sm-6 m-b30">
@@ -67,6 +82,10 @@ function Getintouch() {
                                     <button type="submit" name="submit" className="btn btn-lg btn-icon btn-white hover-secondary btn-shadow">
                                         Submit <span className="right-icon"><i className="feather icon-arrow-right" /></span>
                                     </button>
+                                    {/* Status message */}
+                                    {result && (
+                                        <p className={`mt-3 text-white`}>{result}</p>
+                                    )}
                                 </div>
                             </div>
                         </form>
